@@ -1,20 +1,19 @@
-
 <mat-toolbar class="w-screen bg-white ">
-    <span>EzLabor</span>
-    <span class="example-spacer"></span>
-    <nav mat-tab-nav-bar class="mr-10">
-        <a mat-tab-link  *ngFor="let link of links"
-        (click) = "activeLink = link"
-        [active]="activeLink == link">{{link}}</a>
-    </nav>
-    <div>
-        <button mat-button class="mr-5" [matMenuTriggerFor]="menu"><mat-icon>account_circle</mat-icon></button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>Ver mi perfil</button>
-            <mat-divider></mat-divider>
-            <button mat-menu-item>Cerrar sesión</button>
-        </mat-menu>
-    </div>
+  <span>EzLabor</span>
+  <span class="example-spacer"></span>
+  <nav mat-tab-nav-bar class="mr-10">
+    <a mat-tab-link  *ngFor="let link of links"
+       (click) = "activeLink = link"
+       [active]="activeLink == link"
+       [routerLink]=link.route
+    >{{link.name}}</a>
+  </nav>
+  <div>
+    <button mat-button class="mr-5" [matMenuTriggerFor]="menu"><mat-icon class="-mt-5">account_circle</mat-icon></button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/profile">Ver mi perfil</button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item>Cerrar sesión</button>
+    </mat-menu>
+  </div>
 </mat-toolbar>
-
-  
