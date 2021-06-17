@@ -7,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  links = ['Buscar Trabajo', 'Postulaciones'];
+  links = [
+    {
+      name: 'Search job',
+      route: '/home'
+    },
+    {
+      name: 'postulations',
+      route: '/postulations'
+    }
+  ];
+
   activeLink = this.links[0];
 
   constructor() { }
