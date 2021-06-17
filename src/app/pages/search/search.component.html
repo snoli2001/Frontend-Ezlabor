@@ -1,0 +1,45 @@
+<div class="grid grid-cols-7 mt-10">
+    <div class="lg:col-span-2 lg:flex flex-col hidden lg:visible">
+        <h1 class="text-purple-500 text-4xl ml-10">Jobs</h1>
+        <div class="flex justify-between mt-8">
+            <h3 class="font-medium text-lg ml-10">Filter</h3>
+            <button (click)="cleanFilters()" class="flex text-purple-600 mr-5">
+                <mat-icon>delete</mat-icon>
+                <p>Clean filters</p>
+            </button>
+        </div>
+    </div>
+    <div class="col-span-5 col-start-2 lg:col-span-4">
+        <input
+        [(ngModel)] = "search"
+        (input)="searchOffer()"
+        type="search" 
+        class="w-full bg-purple-white shadow rounded border-0 p-3" 
+        placeholder="Search jobs">
+    </div>
+</div>
+<div class="mt-2">
+    <mat-divider></mat-divider>
+</div>
+<div class="grid grid-cols-7 mt-5">
+    <div class="lg:col-span-2 lg:flex flex-col ml-10 hidden lg:visible">
+        <h1 class="text-lg">Por especialidad:</h1>
+        <div class="flex flex-col mt-2">
+            <p class="my-2" *ngFor="let specialty of specialties">
+                <mat-checkbox color="primary" 
+                              [(ngModel)]="specialty.selected"
+                              (ngModelChange)="filterOffers()" >
+                    {{specialty.name}}
+                </mat-checkbox>
+            </p>
+        </div>
+    </div>
+    <div class="col-span-7 lg:col-span-4">
+        <div class="md:grid flex flex-col items-center  md:grid-cols-2">
+            <div *ngFor="let offer of offersFiltered">
+                <app-postulation-card [offer]="offer"></app-postulation-card>
+            </div>
+        </div>
+    </div>
+</div>
+
