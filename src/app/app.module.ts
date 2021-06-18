@@ -14,10 +14,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+
+
 
 //Components
 import { PostulationCardComponent } from './components/postulation-card/postulation-card.component';
@@ -25,8 +28,9 @@ import { SearchComponent } from './pages/search/search.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { PostulationsComponent } from './pages/postulations/postulations.component';
 import { ProfileComponent } from './pages/profile/profile.component'
-import {AuthInterceptor} from "./http-interceptors/auth-interceptor";
-import {MatChip} from "@angular/material/chips";
+import { AuthInterceptor} from "./http-interceptors/auth-interceptor";
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,9 @@ import {MatChip} from "@angular/material/chips";
     SearchComponent,
     HeaderComponent,
     PostulationsComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +59,8 @@ import {MatChip} from "@angular/material/chips";
     MatFormFieldModule,
     MatCheckboxModule,
     MatButtonModule,
-    MatChipsModule
+    MatChipsModule,
+    MatInputModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

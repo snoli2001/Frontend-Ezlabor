@@ -1,0 +1,74 @@
+<!-- <form autocomplete="off" (ngSubmit)="login(loginNgForm)" #loginNgForm="ngForm" >
+
+    <label>Email</label>
+    <input name="email" 
+           type="text"
+           placeholder="Email"
+           required
+           [ngModel]="loginForm.email"
+           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+           #email="ngModel"
+           >
+    <small *ngIf="email.invalid && email.touched">El correo es obligatorio</small>
+
+    <label>Password</label>
+    <input name="password" 
+    type="password"
+    placeholder="Password"
+    required
+    minlength="6"
+    [ngModel]="loginForm.password"
+    #password="ngModel"
+    >
+    <small *ngIf="password.invalid && password.touched">La contraseña debe tener un minimo de 6 caracteres</small>
+    <button type="submit">login</button>
+</form> -->
+<div class="grid grid-cols-2 justify-center items-center w-screen h-screen bg-gray-100">
+
+    <img class="image-cover object-cover hidden sm:flex" src="../../../assets/heroImage.jpg" alt="">
+    <div class="flex justify-center col-span-2 sm:col-span-1">
+        <mat-card class="p-10">
+            <mat-card-title class="text-center">Login</mat-card-title>
+                <mat-card-content class="mt-5">
+                    <form autocomplete="off" (ngSubmit)="login(loginNgForm)" #loginNgForm="ngForm" >
+                        <div class="flex flex-col justify-around mb-2">
+                            <mat-form-field class="mb-2">
+                                <input matInput name="email" 
+                                    type="text"
+                                    placeholder="Email"
+                                    required
+                                    [ngModel]="loginForm.email"
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                                    #email="ngModel"
+                                >
+                            <mat-error *ngIf="email.invalid && email.touched">El correo es obligatorio</mat-error>
+
+                            </mat-form-field>
+            
+                            <mat-form-field >
+                                <input matInput name="password" 
+                                    type="password"
+                                    placeholder="Password"
+                                    required
+                                    minlength="6"
+                                    [ngModel]="loginForm.password"
+                                    #password="ngModel">
+                                <mat-error *ngIf="password.invalid && password.touched">La contraseña debe tener un minimo de 6 caracteres</mat-error>
+                            </mat-form-field>
+                        </div>
+                       
+                        <div class="text-center">
+                            <button class="px-6 py-2 bg-purple-500 text-white rounded-full" type="submit" mat-button>Sign in</button>
+                        </div>
+        
+                        <div class="mt-5">
+                        <p class="text-xs">
+                            You do not have an account yet?
+                            <button type="submit" class="ml-1 text-xs text-blue-800 underline" href="#" >sign up</button>
+                        </p>
+                        </div>
+                    </form>
+                </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +8,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AppComponent {
   ngOnInit(): void{
   }
+  isAuthenticated = false;
   title = 'Frontend-EzLabor';
 }

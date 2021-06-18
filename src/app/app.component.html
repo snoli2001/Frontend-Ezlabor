@@ -1,5 +1,7 @@
-<app-header></app-header>
-<div class="-mt-2">
-  <mat-divider></mat-divider>
+<div *ngIf="isAuthenticated">
+    <app-header></app-header>
+    <div class="-mt-2">
+      <mat-divider></mat-divider>
+    </div>
 </div>
 <router-outlet></router-outlet>
