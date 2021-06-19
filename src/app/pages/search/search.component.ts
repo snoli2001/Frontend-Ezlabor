@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { OfferInterface } from 'src/app/modals/Offer.interface';
+import { OfferInterface } from '../../modals/offer.interface';
 import { SpecialtyInterface } from 'src/app/modals/specialty.interface';
-import { OffersService } from '../../services/offers.service';
-import { SpecialtiesService } from '../../services/specialties.service';
+import { OffersService } from '../../services/offers-api.service';
+import { SpecialtiesService } from '../../services/specialties-api.service';
 
 @Component({
   selector: 'app-search',

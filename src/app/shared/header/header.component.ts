@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-header',
@@ -20,9 +22,15 @@ export class HeaderComponent implements OnInit {
 
   activeLink = this.links[0];
 
-  constructor() { }
+  constructor(private router: Router, private app: AppComponent) { }
 
   ngOnInit(): void {
+  }
+
+  logOut(){
+    sessionStorage.clear();
+    this.app.isAuthenticated = false;
+    this.router.navigateByUrl("/login");
   }
 
 }

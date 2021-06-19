@@ -13,7 +13,7 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item routerLink="/profile">Ver mi perfil</button>
       <mat-divider></mat-divider>
-      <button mat-menu-item>Cerrar sesión</button>
+      <button mat-menu-item (click)="logOut()">Cerrar sesión</button>
     </mat-menu>
   </div>
 </mat-toolbar>

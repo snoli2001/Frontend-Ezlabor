@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { OfferInterface } from 'src/app/modals/Offer.interface';
+import { OfferInterface } from '../../modals/offer.interface';
 
 @Component({
   selector: 'app-postulation-card',

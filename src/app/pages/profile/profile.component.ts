@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthApiService } from '../../services/auth-api.service';
+import { LoginInterface } from '../../modals/Login.interface';
 
 export interface Skill {
   name: string;
@@ -20,9 +22,16 @@ export class ProfileComponent implements OnInit {
     {name: 'Angular'},
   ];
 
-  constructor() { }
+  loginForm: LoginInterface = {
+    email: "sebastian.noli@gmail.com",
+    password: "123456"
+  }
+
+  constructor(private authService: AuthApiService) { }
 
   ngOnInit(): void {
+    this.authService.login(this.loginForm)
+    .subscribe( resp => console.log(resp.token) );
   }
 
 }
