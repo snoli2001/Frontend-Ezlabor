@@ -1,29 +1,5 @@
-<!-- <form autocomplete="off" (ngSubmit)="login(loginNgForm)" #loginNgForm="ngForm" >
 
-    <label>Email</label>
-    <input name="email" 
-           type="text"
-           placeholder="Email"
-           required
-           [ngModel]="loginForm.email"
-           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-           #email="ngModel"
-           >
-    <small *ngIf="email.invalid && email.touched">El correo es obligatorio</small>
-
-    <label>Password</label>
-    <input name="password" 
-    type="password"
-    placeholder="Password"
-    required
-    minlength="6"
-    [ngModel]="loginForm.password"
-    #password="ngModel"
-    >
-    <small *ngIf="password.invalid && password.touched">La contraseña debe tener un minimo de 6 caracteres</small>
-    <button type="submit">login</button>
-</form> -->
-<div class="grid grid-cols-2 justify-center items-center w-screen h-screen bg-gray-100">
+<div class="grid grid-cols-2 justify-center items-center w-screen h-screen bg">
 
     <img class="image-cover object-cover hidden sm:flex" src="../../../assets/heroImage.jpg" alt="">
     <div class="flex justify-center col-span-2 sm:col-span-1">
@@ -64,7 +40,7 @@
                         <div class="mt-5">
                         <p class="text-xs">
                             You do not have an account yet?
-                            <button type="submit" class="ml-1 text-xs text-blue-800 underline" href="#" >sign up</button>
+                            <button routerLink="/register" type="submit" class="ml-1 text-xs text-blue-800 underline" href="#" >sign up</button>
                         </p>
                         </div>
                     </form>

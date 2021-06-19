@@ -1,0 +1,98 @@
+
+<div class="flex justify-center items-center h-screen bg">
+    <mat-card class="p-10 w-2/3">
+        <button routerLink="/login">
+            <mat-icon class="text-purple-700">keyboard_backspace</mat-icon>
+        </button>
+        <mat-card-title class="text-center">Register</mat-card-title>
+            <mat-card-content class="mt-5">
+                <form autocomplete="off" [formGroup]="form" (ngSubmit)="register()" >
+                    <div class="grid grid-cols-1 sm:grid-cols-2  mb-2 gap-3 sm:gap-6">
+                        
+                        <mat-form-field class="mb-2" >
+                            <input matInput name="username" 
+                                type="text"
+                                placeholder="Username"
+                                formControlName="username"
+                            >
+                            <mat-error *ngIf="usernameInvalid">The username is required</mat-error>
+                        </mat-form-field> 
+                        <mat-form-field class="mb-2">
+                            <input matInput name="name" 
+                                type="text"
+                                placeholder="Name"
+                                formControlName="name"
+                            >
+                            <mat-error *ngIf="nameInvalid">The name must have a minimum of 3 characters</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="mb-2">
+                            <input matInput name="lastname" 
+                                type="text"
+                                placeholder="Lastname"
+                                formControlName="lastname"
+                            >
+                            <mat-error *ngIf="lastnameInvalid">The lastname must have a minimum of 3 characters</mat-error>
+                        </mat-form-field>  
+
+                        <mat-form-field class="mb-2">
+                            <input matInput name="email" 
+                                type="text"
+                                placeholder="Email"
+                                formControlName="email"
+                            >
+                            <mat-error *ngIf="emailInvalid">The email is required</mat-error>
+                        </mat-form-field>
+                        
+                        <mat-form-field >
+                            <mat-label>Select your birthdate </mat-label>
+                            <input matInput placeholder="BirthDate" formControlName="birthDate" [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field class="mb-2">
+                            <input matInput name="phone" 
+                                type="tel"
+                                placeholder="Phone"
+                                formControlName="phone"
+                            >
+                            <mat-error *ngIf="phoneInvalid">The phone number must have 9 characters</mat-error>
+                        </mat-form-field>
+                         
+                        
+                        <mat-form-field class="mb-2">
+                            <input matInput name="profession" 
+                                type="text"
+                                placeholder="Profession"
+                                formControlName="profession"
+                            >
+                            <mat-error *ngIf="professionInvalid">The profession is required</mat-error>
+                        </mat-form-field>  
+
+                        <mat-form-field >
+                            <input matInput name="password" 
+                                type="password"
+                                placeholder="Password"
+                                formControlName="password"
+                                >
+                            <mat-error *ngIf="passwordInvalid">The password must have a minimum of 6 characters</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field >
+                            <input matInput name="password" 
+                                type="password"
+                                placeholder="Confirm password"
+                                formControlName="confirmPassword"
+                                >
+                            <mat-error *ngIf="confirmPasswordInvalid">Password does not match</mat-error>
+                        </mat-form-field>
+                    </div>
+                   
+                    <div class="text-center">
+                        <button class="px-6 py-2 bg-purple-500 text-white rounded-full" type="submit" mat-button>Sign up</button>
+                    </div>
+                </form>
+            </mat-card-content>
+    </mat-card>
+</div>
