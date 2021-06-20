@@ -35,6 +35,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RegisterFreelancerComponent } from './auth/register/register-freelancer/register-freelancer.component';
 import { RegisterEmployerComponent } from './auth/register/register-employer/register-employer.component';
+import { ApplyPostulationsComponent } from './pages/apply-postulations/apply-postulations.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { RegisterEmployerComponent } from './auth/register/register-employer/reg
     RegisterComponent,
     RegisterFreelancerComponent,
     RegisterEmployerComponent,
+    ApplyPostulationsComponent,
   ],
   imports: [
     BrowserModule,

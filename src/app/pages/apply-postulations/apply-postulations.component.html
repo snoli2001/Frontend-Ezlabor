@@ -1,0 +1,58 @@
+<button class="flex text-purple-600 mr-5">
+  <mat-icon>arrow_back</mat-icon>Back
+</button>
+<div class="flex flex-col items-center justify-center">
+  <mat-card class="card-width mt-5">
+    <mat-card-title class="pb-3">{{ offer.title }}</mat-card-title>
+    <mat-card-subtitle>
+      <span>Speciality: </span>
+      <span>{{ offer.specialty }}</span>
+    </mat-card-subtitle>
+    <mat-card-content>
+      <div class="grid grid-cols-2">
+        <div>
+          <span>Start date: </span>
+          <span>{{ offer.startDate }}</span>
+        </div>
+        <div>
+          <span>End date: </span>
+          <span>{{ offer.endDate }}</span>
+        </div>
+      </div>
+      <div class="px-3 pt-3">
+        {{ offer.description }}
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary">More details</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="card-width mt-7 mb-5">
+    <mat-card-title>
+      <h1 id="complete" class="mt-2">Completa tu postulación</h1>
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-title class="py-3">Indica el monto de la cotización (sin incluir IGV)</mat-card-title>
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <input matInput type="number" class="amount-input" placeholder="0">
+        <span matPrefix>S/.&nbsp;</span>
+        <span matSuffix>.00</span>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <div class="grid grid-cols-1">
+      <mat-form-field appearance="outline" class="pt-6">
+        <mat-label>Déjale un comentario al cliente</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <div class="flex justify-end py-2">
+        <button mat-raised-button color="primary">Inviar postulación</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
