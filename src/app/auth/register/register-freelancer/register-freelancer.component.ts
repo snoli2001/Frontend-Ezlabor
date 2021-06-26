@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { ValidatorsService } from '../../../services/validators.service';
+import { FreelancerApiService } from '../../../services/freelancer-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-freelancer',
@@ -15,7 +17,9 @@ export class RegisterFreelancerComponent implements OnInit {
   maxDate: Date;
 
   constructor(private fb: FormBuilder,
-    private validators: ValidatorsService) {
+    private validators: ValidatorsService,
+    private freelancerService:FreelancerApiService,
+    private router: Router) {
       this.createForm();
       const currentYear = new Date().getFullYear();
       this.minDate = new Date(currentYear - 100, 0, 1);
@@ -30,7 +34,7 @@ export class RegisterFreelancerComponent implements OnInit {
   createForm(){
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(5)]],
-      name: ['', [Validators.required, Validators.minLength(3)]],
+      firstname: ['', [Validators.required, Validators.minLength(3)]],
       lastname: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [ Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       phone: ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
@@ -58,10 +62,10 @@ export class RegisterFreelancerComponent implements OnInit {
       });
     }
     
-    const {accountType, confirmPassword ,...newFreelancer} = this.form.value
-
+    const {accountType, confirmPassword ,...newFreelancer} = this.form.value;
+    newFreelancer.birthDate = (newFreelancer.birthDate as Date).toISOString();
     console.log(newFreelancer);
-
+    this.freelancerService.createFreelancer(newFreelancer).subscribe(() => this.router.navigateByUrl('/login'))
   }
   
   
@@ -70,7 +74,7 @@ export class RegisterFreelancerComponent implements OnInit {
   get usernameInvalid(){
     return this.form?.get('username')?.invalid && this.form.get('username')?.touched;
   }
-  get nameInvalid(){
+  get firstnameInvalid(){
     return this.form?.get('name')?.invalid && this.form.get('name')?.touched;
   }
   get lastnameInvalid(){
