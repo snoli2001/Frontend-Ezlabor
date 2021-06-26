@@ -1,0 +1,18 @@
+.card-width {
+  max-width: 810px;
+}
+
+input.amount-input::-webkit-outer-spin-button,
+input.amount-input::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.amount-input {
+  -moz-appearance: textfield;
+}
+
+#complete {
+  color: mediumpurple;
+  font-weight: normal;
+  font-size: 30px;
+}
