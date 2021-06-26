@@ -1,1 +1,98 @@
-<p>register-employer works!</p>
+
+<div class="flex justify-center items-center h-screen bg">
+  <mat-card class="p-10 w-2/3">
+    <button routerLink="/login">
+      <mat-icon class="text-purple-700">keyboard_backspace</mat-icon>
+    </button>
+    <mat-card-title class="text-center">Register</mat-card-title>
+    <mat-card-content class="mt-5">
+      <form autocomplete="off" [formGroup]="form" (ngSubmit)="register()" >
+        <div class="grid grid-cols-1 sm:grid-cols-2  mb-2 gap-3 sm:gap-6">
+
+          <mat-form-field class="mb-2" >
+            <input matInput name="username"
+                   type="text"
+                   placeholder="Username"
+                   formControlName="username"
+            >
+            <mat-error *ngIf="usernameInvalid">The username is required</mat-error>
+          </mat-form-field>
+          <mat-form-field class="mb-2">
+            <input matInput name="companyName"
+                   type="text"
+                   placeholder="Company Name"
+                   formControlName="company name"
+            >
+            <mat-error *ngIf="companyNameInvalid">The name must have a minimum of 3 characters</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="mb-2">
+            <input matInput name="personalPhone"
+                   type="tel"
+                   placeholder="Personal Phone"
+                   formControlName="personal phone"
+            >
+            <mat-error *ngIf="personalPhoneInvalid">The phone number must have 9 characters</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="mb-2">
+            <input matInput name="contactCompanyEmail"
+                   type="text"
+                   placeholder="Company Email"
+                   formControlName="company email"
+            >
+            <mat-error *ngIf="contactCompanyEmailInvalid">The email is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field >
+            <mat-label>Select your birthdate </mat-label>
+            <input matInput placeholder="BirthDate" formControlName="birthDate" [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="mb-2">
+            <input matInput name="companyPhone"
+                   type="tel"
+                   placeholder="Company Phone"
+                   formControlName="company phone"
+            >
+            <mat-error *ngIf="companyPhoneInvalid">The phone number must have 9 characters</mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field class="mb-2">
+            <input matInput name="companyWeb"
+                   type="text"
+                   placeholder="Company Web"
+                   formControlName="company web"
+            >
+            <mat-error *ngIf="companyWebInvalid">The web is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field >
+            <input matInput name="password"
+                   type="password"
+                   placeholder="Password"
+                   formControlName="password"
+            >
+            <mat-error *ngIf="passwordInvalid">The password must have a minimum of 6 characters</mat-error>
+          </mat-form-field>
+
+          <mat-form-field >
+            <input matInput name="password"
+                   type="password"
+                   placeholder="Confirm password"
+                   formControlName="confirmPassword"
+            >
+            <mat-error *ngIf="confirmPasswordInvalid">Password does not match</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="text-center">
+          <button class="px-6 py-2 bg-purple-500 text-white rounded-full" type="submit" mat-button>Sign up</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

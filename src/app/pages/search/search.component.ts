@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { OfferInterface } from '../../modals/offer.interface';
-import { SpecialtyInterface } from 'src/app/modals/specialty.interface';
+import { OfferInterface } from '../../models/offer.interface';
+import { SpecialtyInterface } from 'src/app/models/specialty.interface';
 import { OffersService } from '../../services/offers-api.service';
 import { SpecialtiesService } from '../../services/specialties-api.service';
 

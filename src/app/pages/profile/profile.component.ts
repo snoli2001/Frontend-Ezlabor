@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthApiService } from '../../services/auth-api.service';
-import { LoginInterface } from '../../modals/Login.interface';
+import { LoginInterface } from '../../models/Login.interface';
+import { UserApiService } from '../../services/user-api.service';
+import { FreelancerInterface } from '../../models/Frelancer.interface';
+import { FreelancerApiService } from '../../services/freelancer-api.service';
 
 export interface Skill {
   name: string;
@@ -22,16 +25,18 @@ export class ProfileComponent implements OnInit {
     {name: 'Angular'},
   ];
 
-  loginForm: LoginInterface = {
-    email: "sebastian.noli@gmail.com",
-    password: "123456"
-  }
+  id: number;
+  freelancer: FreelancerInterface | undefined;
 
-  constructor(private authService: AuthApiService) { }
-
+  constructor(private userService: UserApiService, private freelancerService: FreelancerApiService) {
+    
+    this.id = this.userService.getUserId() as number;
+    this.freelancerService.getFreelancerById(this.id)
+      .subscribe( response => this.freelancer = response );
+   }
+  
   ngOnInit(): void {
-    this.authService.login(this.loginForm)
-    .subscribe( resp => console.log(resp.token) );
+    
   }
 
 }
