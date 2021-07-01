@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {OfferInterface} from "../../models/offer.interface";
 
 @Component({
   selector: 'app-postulations',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./postulations.component.css']
 })
 export class PostulationsComponent implements OnInit {
+
+  @Input()
+  offer!: OfferInterface;
 
   constructor() { }
 
