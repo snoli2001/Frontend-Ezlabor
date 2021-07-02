@@ -1,0 +1,65 @@
+<h1 mat-dialog-title>Social Media</h1>
+
+<form autocomplete="off" (ngSubmit)="updateProfile(editNgSocialMedia)" #editNgSocialMedia="ngForm" >
+    <div class="flex flex-col justify-around mb-2">
+        <mat-form-field class="mb-2">
+            <input matInput name="phone" 
+                type="phone"
+                placeholder="Phone"
+                [ngModel]="data?.phone"
+                #phone="ngModel"
+            >
+        </mat-form-field>
+
+        <mat-form-field >
+            <input matInput name="description" 
+                type="text"
+                placeholder="Description"
+                minlength="6"
+                [ngModel]="data?.description"
+                #password="ngModel">
+        </mat-form-field>
+
+        <mat-form-field class="mb-2">
+            <input matInput name="webPage" 
+                type="text"
+                placeholder="WebPage link"
+                [ngModel]="data?.webPage"
+                #webPage="ngModel"
+            >
+        </mat-form-field>
+
+        <mat-form-field >
+            <input matInput name="facebookLink" 
+                type="text"
+                placeholder="Facebook link"
+                [ngModel]="data?.facebookLink"
+                #facebookLink="ngModel">
+        </mat-form-field>
+
+        
+        <mat-form-field >
+            <input matInput name="instagramLink" 
+                type="text"
+                placeholder="Instagram link"
+                minlength="6"
+                [ngModel]="data?.instagramLink"
+                #instagramLink="ngModel">
+        </mat-form-field>
+
+        <mat-form-field >
+            <input matInput name="twitterLink" 
+                type="text"
+                placeholder="Twitter link"
+                minlength="6"
+                [ngModel]="data?.twitterLink"
+                #twitterLink="ngModel">
+        </mat-form-field>
+
+    </div>
+   
+    <div class="text-center">
+        <button class="px-6 py-2 bg-purple-500 text-white rounded-full" type="submit" mat-button>Update Profile</button>
+    </div>
+
+</form>
