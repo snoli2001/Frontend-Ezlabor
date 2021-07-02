@@ -5,6 +5,9 @@ export interface PostulationInterface {
   id: number,
   desiredPayment: number,
   description: string,
-  freelancer: FreelancerInterface,
+  freelancerId: number,
+  firstname: string,
+  lastname: string,
+  state: string,
   offer: OfferInterface
 }

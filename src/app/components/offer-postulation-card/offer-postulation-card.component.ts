@@ -12,7 +12,7 @@ export class OfferPostulationCardComponent implements OnInit {
 
   @Input()
   offer!: OfferInterface;
-  @Output() postulate = new EventEmitter<undefined>();
+  // @Output() postulate = new EventEmitter<undefined>();
 
   offers: any;
   postulations: any;
