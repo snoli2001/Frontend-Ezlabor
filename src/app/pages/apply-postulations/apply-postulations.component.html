@@ -1,32 +1,33 @@
-<button class="flex text-purple-600 mr-5">
+<button routerLink="/home" class="flex text-purple-600 mr-5">
   <mat-icon>arrow_back</mat-icon>Back
 </button>
 <div class="flex flex-col items-center justify-center">
   <mat-card class="card-width mt-5">
-    <mat-card-title class="pb-3">{{ offer.title }}</mat-card-title>
-    <mat-card-subtitle>
+    <mat-card-title class="pb-3">{{ offers.title }}</mat-card-title>
+    <mat-card-content>
       <span>Speciality: </span>
-      <span>{{ offer.specialty }}</span>
-    </mat-card-subtitle>
+      <span><b>{{ offers.specialty.name }}</b></span>
+    </mat-card-content>
     <mat-card-content>
       <div class="grid grid-cols-2">
         <div>
           <span>Start date: </span>
-          <span>{{ offer.startDate }}</span>
+          <span><b>{{ offers.startDate | date:'shortDate' }}</b></span>
         </div>
         <div>
           <span>End date: </span>
-          <span>{{ offer.endDate }}</span>
+          <span><b>{{ offers.endDate | date:'shortDate' }}</b></span>
         </div>
       </div>
       <div class="px-3 pt-3">
-        {{ offer.description }}
+        {{ offers.description }}
       </div>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button color="primary">More details</button>
     </mat-card-actions>
   </mat-card>
+
 
   <mat-card class="card-width mt-7 mb-5">
     <mat-card-title>
