@@ -1,1 +1,9 @@
-<p>add-skill works!</p>
+<form [formGroup]="form" (ngSubmit)="addSkill()">
+    <mat-form-field class="w-full">
+      <mat-label>Skill name</mat-label>
+      <input matInput formControlName="skillName" placeholder="skill name">
+    </mat-form-field>
+    <div class="flex justify-center">
+      <button mat-raised-button class="bg-purple-500 text-white" [disabled]="form.invalid">Add<mat-icon class=" -mr-2">add</mat-icon></button>
+    </div>
+</form>

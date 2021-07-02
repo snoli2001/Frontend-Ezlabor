@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditProfileDialogComponent } from '../../components/dialogs/edit-profile-dialog/edit-profile-dialog.component';
 import { UpdateFreelancerInterface } from '../../models/UpdateFreelancer.interface';
 import { AddSkillComponent } from '../../components/dialogs/add-skill/add-skill.component';
+import { SkillApiService } from '../../services/skill-api.service';
 
 export interface Skill {
   id: 1,
@@ -29,6 +30,7 @@ export class ProfileComponent implements OnInit {
   constructor(private userService: UserApiService,
               private freelancerService: FreelancerApiService,
               public dialog: MatDialog,
+              private skillService: SkillApiService,
               ) {
     
     this.id = this.userService.getUserId() as number;
@@ -64,15 +66,18 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  openAddSkillDialog(){
+  openAddSkillDialog() {
     const dialogRef = this.dialog.open(AddSkillComponent, {
       width: '500px',
-  } );
+    });
 
-  dialogRef.beforeClosed().subscribe(result => {
-    this.freelancerService.getFreelancerById(this.id)
-    .subscribe( response => this.freelancer = response );
-  })
+    dialogRef.beforeClosed().subscribe(result => {
+      if (result) {
+        this.skillService.addSkill(this.id, result).subscribe(() => {
+          this.freelancerService.getSkills(this.id)
+            .subscribe(response => this.skills = response);
+        });
+      }
+    })
   }
-
 }
