@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidatorsService} from "../../../services/validators.service";
+import {EmployerApiService} from "../../../services/employer-api.service";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-register-employer',
@@ -14,7 +17,9 @@ export class RegisterEmployerComponent implements OnInit {
   maxDate: Date;
 
   constructor(private fb: FormBuilder,
-              private validators: ValidatorsService) {
+              private validators: ValidatorsService,
+              private employerService:EmployerApiService,
+              private router: Router) {
     this.createForm();
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 100, 0, 1);
@@ -53,9 +58,9 @@ export class RegisterEmployerComponent implements OnInit {
       });
     }
 
-    const {accountType, confirmPassword ,...newEmployer} = this.form.value
-
+    const {accountType, confirmPassword ,...newEmployer} = this.form.value;
     console.log(newEmployer);
+    this.employerService.createEmployer(newEmployer).subscribe(() => this.router.navigateByUrl('/login'))
 
   }
 

@@ -21,7 +21,7 @@
             <input matInput name="companyName"
                    type="text"
                    placeholder="Company Name"
-                   formControlName="company name"
+                   formControlName="companyName"
             >
             <mat-error *ngIf="companyNameInvalid">The name must have a minimum of 3 characters</mat-error>
           </mat-form-field>
@@ -30,7 +30,7 @@
             <input matInput name="personalPhone"
                    type="tel"
                    placeholder="Personal Phone"
-                   formControlName="personal phone"
+                   formControlName="personalPhone"
             >
             <mat-error *ngIf="personalPhoneInvalid">The phone number must have 9 characters</mat-error>
           </mat-form-field>
@@ -39,23 +39,16 @@
             <input matInput name="contactCompanyEmail"
                    type="text"
                    placeholder="Company Email"
-                   formControlName="company email"
+                   formControlName="contactCompanyEmail"
             >
             <mat-error *ngIf="contactCompanyEmailInvalid">The email is required</mat-error>
-          </mat-form-field>
-
-          <mat-form-field >
-            <mat-label>Select your birthdate </mat-label>
-            <input matInput placeholder="BirthDate" formControlName="birthDate" [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
 
           <mat-form-field class="mb-2">
             <input matInput name="companyPhone"
                    type="tel"
                    placeholder="Company Phone"
-                   formControlName="company phone"
+                   formControlName="companyPhone"
             >
             <mat-error *ngIf="companyPhoneInvalid">The phone number must have 9 characters</mat-error>
           </mat-form-field>
@@ -65,7 +58,7 @@
             <input matInput name="companyWeb"
                    type="text"
                    placeholder="Company Web"
-                   formControlName="company web"
+                   formControlName="companyWeb"
             >
             <mat-error *ngIf="companyWebInvalid">The web is required</mat-error>
           </mat-form-field>
