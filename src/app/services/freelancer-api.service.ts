@@ -12,6 +12,11 @@ export class FreelancerApiService {
   private apiUrl:string = "http://localhost:8080/api"
   constructor(private http: HttpClient) { }
 
+  getAllFreelancers(): Observable<FreelancerInterface>{
+    const url = `${this.apiUrl}/freelancers`;
+    return this.http.get<FreelancerInterface>(url);
+  }
+
   getFreelancerById(id: number): Observable<FreelancerInterface>{
     const url = `${this.apiUrl}/freelancers/${id}`;
     return this.http.get<FreelancerInterface>(url);

@@ -1,4 +1,4 @@
-
+import { SpecialtyInterface } from './specialty.interface';
 export interface FreelancerInterface{
     id: number,
     username: string,
@@ -13,5 +13,6 @@ export interface FreelancerInterface{
     birthDat: Date,
     phone: string,
     description: string,
+    specialty: SpecialtyInterface,
     profession: string
 }

@@ -39,6 +39,8 @@ import { ApplyPostulationsComponent } from './pages/apply-postulations/apply-pos
 import { OfferPostulationCardComponent } from './components/offer-postulation-card/offer-postulation-card.component';
 import { FreelancerPostulationsComponent } from './pages/freelancer-postulations/freelancer-postulations.component';
 import { OfferPostulationsComponent } from './pages/offer-postulations/offer-postulations.component';
+import { EmployerFreelancersComponent } from './pages/employer-freelancers/employer-freelancers.component';
+import { FreelancerCardComponent } from './components/freelancer-card/freelancer-card.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { OfferPostulationsComponent } from './pages/offer-postulations/offer-pos
     OfferPostulationCardComponent,
     FreelancerPostulationsComponent,
     OfferPostulationsComponent,
+    EmployerFreelancersComponent,
+    FreelancerCardComponent,
   ],
   imports: [
     BrowserModule,
