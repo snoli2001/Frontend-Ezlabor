@@ -1,85 +1,3 @@
-<!-- <div class="grid grid-cols-12">
-  <div class="col-span-12 md:col-span-6 mt-5 mx-5">
-    <mat-card>
-      <div class="flex flex-col items-center justify-center">
-        <div class="w-32 h-32 relative mb-4">
-          <div class="group w-full h-full rounded-full overflow-hidden shadow-inner text-center bg-purple table ">
-            <img src="https://pickaface.net/gallery/avatar/unr_random_180410_1905_z1exb.png" alt="lovely avatar" class="object-cover object-center w-full h-full " />
-          </div>
-        </div>
-        <mat-card-title>Sebastian Noli</mat-card-title>
-        <mat-card-subtitle class="bg-purple-500 text-white p-1 rounded">Software Developer</mat-card-subtitle>
-        <div class="flex justify-around  w-40">
-          <a>
-            <svg class="h-5 w-5 text-blue-700 cursor-pointer"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
-          </a>
-          <a>
-            <svg class="h-5 w-5 text-pink-500 cursor-pointer"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
-          </a>
-          <a>
-            <svg class="h-5 w-5 text-blue-600 cursor-pointer"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />  <rect x="2" y="9" width="4" height="12" />  <circle cx="4" cy="4" r="2" /></svg>
-          </a>
-          <a>
-            <svg class="h-5 w-5 text-blue-500 cursor-pointer"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" /></svg>
-          </a>
-        </div>
-        <a href="" class="text-xs text-blue-400 flex items-center mt-3">
-          <mat-icon style="font-size: 18px;">cloud</mat-icon>
-          <span class="underline">http://localhost:4200/profile</span>
-        </a>
-      </div>
-      <mat-card-actions>
-        <div class="flex justify-end">
-          <button mat-raised-button class="bg-purple-500 text-white">Editar<mat-icon class="mt-1 -mr-2">edit</mat-icon></button>
-          <div class="mr-5"></div>
-        </div>
-      </mat-card-actions>
-    </mat-card >
-  </div>
-  <div class="col-span-12 md:col-span-6 mt-5 mx-5">
-    <mat-card>
-      <mat-card-title>About Me</mat-card-title>
-      <mat-card-content>
-         <p class="p-3">
-           Lorem ipsum dolor, sit amet consectetur 
-           adipisicing elit. Voluptas saepe autem quis ea exercitationem hic quae sed aut eos libero.
-         </p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div class="col-span-12 md:col-span-6 mt-5 mx-5">
-    <mat-card >
-      <mat-card-title>Projects in Ezlabor</mat-card-title>
-      <div class="grid grid-cols-2 mt-8">
-        <div class="flex flex-col items-center justify-center">
-          <h1 class="text-3xl text-purple-500">00</h1>
-          <h1 class="text-base"> In Progress</h1>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <h1 class="text-3xl text-purple-500">00</h1>
-          <h1 class="text-base">Finished</h1>
-        </div>
-      </div>
-    </mat-card >
-  </div>
-  <div class="col-span-12 md:col-span-6 mt-5 mx-5">
-    <mat-card>
-      <mat-card-title>Skills</mat-card-title>
-      <mat-chip-list
-        class="example-chip"
-        cdkDropList
-        cdkDropListOrientation="horizontal">
-        <mat-chip
-          class="example-box"
-          cdkDrag
-          *ngFor="let skill of skills">
-          {{skill.name}}
-        </mat-chip>
-      </mat-chip-list>
-    </mat-card >
-  </div>
-</div> -->
-
 
 <div class="grid grid-cols-1 md:grid-cols-9 ">
   <div class="grid col-span-3 md:col-start-2">
@@ -94,27 +12,24 @@
             <mat-card-title>{{freelancer?.firstname | titlecase}} {{freelancer?.lastname | titlecase}} </mat-card-title>
             <mat-card-subtitle class="bg-purple-500 text-white p-1 rounded">{{freelancer?.profession | titlecase}}</mat-card-subtitle>
             <div class="flex justify-around  w-40">
-              <a>
+              <a [href]="freelancer?.facebookLink" *ngIf="freelancer?.facebookLink !== null && freelancer?.facebookLink !== '' ">
                 <svg class="h-5 w-5 text-blue-700 cursor-pointer"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
               </a>
-              <a>
+              <a [href]="freelancer?.instagramLink" *ngIf="freelancer?.instagramLink !== null && freelancer?.instagramLink !== '' ">
                 <svg class="h-5 w-5 text-pink-500 cursor-pointer"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
               </a>
-              <a>
-                <svg class="h-5 w-5 text-blue-600 cursor-pointer"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />  <rect x="2" y="9" width="4" height="12" />  <circle cx="4" cy="4" r="2" /></svg>
-              </a>
-              <a>
+              <a [href]="freelancer?.twitterLink" *ngIf="freelancer?.twitterLink !== null && freelancer?.twitterLink !== '' ">
                 <svg class="h-5 w-5 text-blue-500 cursor-pointer"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" /></svg>
               </a>
             </div>
-            <a href="" class="text-xs text-blue-400 flex items-center mt-3">
+            <a [href]="freelancer?.webPage" *ngIf="freelancer?.webPage !== null && freelancer?.webPage !== ''"  class="text-xs text-blue-400 flex items-center mt-3">
               <mat-icon style="font-size: 18px;">cloud</mat-icon>
-              <span class="underline">http://localhost:4200/profile</span>
+              <span class="underline">{{freelancer?.webPage}}</span>
             </a>
           </div>
           <mat-card-actions>
             <div class="flex justify-end">
-              <button mat-raised-button class="bg-purple-500 text-white">Editar<mat-icon class="mt-1 -mr-2">edit</mat-icon></button>
+              <button (click)="openEditDialog()" mat-raised-button class="bg-purple-500 text-white">Edit<mat-icon class="mt-1 -mr-2">edit</mat-icon></button>
               <div class="mr-5"></div>
             </div>
           </mat-card-actions>
@@ -158,8 +73,7 @@
           <mat-card-title>About Me</mat-card-title>
           <mat-card-content>
              <p class="p-3">
-               Lorem ipsum dolor, sit amet consectetur 
-               adipisicing elit. Voluptas saepe autem quis ea exercitationem hic quae sed aut eos libero.
+               {{freelancer?.description}}
              </p>
           </mat-card-content>
         </mat-card>
@@ -178,6 +92,9 @@
               {{skill.name}}
             </mat-chip>
           </mat-chip-list>
+          <mat-card-actions>
+            <button (click)="openAddSkillDialog()" mat-raised-button class="bg-purple-500 text-white">Add<mat-icon class=" -mr-2">add</mat-icon></button>
+          </mat-card-actions>
         </mat-card >
       </div>
 

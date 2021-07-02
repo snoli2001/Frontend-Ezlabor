@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {OfferInterface} from "../../modals/offer.interface";
+import {OfferInterface} from "../../models/offer.interface";
 
 @Component({
   selector: 'app-apply-postulations',

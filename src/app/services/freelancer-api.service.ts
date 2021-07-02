@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FreelancerInterface } from '../models/Frelancer.interface';
 import { NewFreelancerInterface } from '../models/NewFreelancer';
+import { Skill } from '../pages/profile/profile.component';
+import { UpdateFreelancerInterface } from '../models/UpdateFreelancer.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +22,16 @@ export class FreelancerApiService {
   createFreelancer(newFreelancer: NewFreelancerInterface){
     const url = `${this.apiUrl}/freelancers`;
     return this.http.post(url, newFreelancer );
+  }
+
+  getSkills(id: number): Observable<Skill[]>{
+    const url = `${this.apiUrl}/freelancers/${id}/skills`;
+    return this.http.get<Skill[]>(url);
+  }
+
+  updateFreelancer(id: number, updateData: UpdateFreelancerInterface ): Observable<FreelancerInterface>{
+    const url = `${this.apiUrl}/freelancers/${id}`;
+    return this.http.put<FreelancerInterface>(url, updateData );
   }
 
 }
