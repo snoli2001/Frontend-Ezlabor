@@ -40,6 +40,7 @@ import { ApplyPostulationsComponent } from './pages/apply-postulations/apply-pos
 import { EditProfileDialogComponent } from './components/dialogs/edit-profile-dialog/edit-profile-dialog.component';
 import { AddSkillComponent } from './components/dialogs/add-skill/add-skill.component';
 import { AddCertificateComponent } from './components/dialogs/add-certificate/add-certificate.component';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { AddCertificateComponent } from './components/dialogs/add-certificate/ad
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
