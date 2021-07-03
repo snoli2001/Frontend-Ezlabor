@@ -34,10 +34,10 @@ export class ApplyPostulationsComponent implements OnInit {
         this.offerApiService.getOfferById(this.offerId).subscribe(resp => this.offers = resp);
       }
     });
-    
+
     this.id = this.userService.getUserId() as number;
-    
-    
+
+
 
   }
 
@@ -46,7 +46,7 @@ export class ApplyPostulationsComponent implements OnInit {
 
   createForm() {
     this.form = this.fb.group({
-      amount: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(5)]],
+      desiredPayment: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(5)]],
       description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(240)]],
     });
   }
@@ -68,7 +68,7 @@ export class ApplyPostulationsComponent implements OnInit {
   }
 
   get amountInvalid(){
-    return this.form?.get('amount')?.invalid && this.form.get('amount')?.touched;
+    return this.form?.get('desiredPayment')?.invalid && this.form.get('desiredPayment')?.touched;
   }
   get descriptionInvalid(){
     return this.form?.get('description')?.invalid && this.form.get('description')?.touched;

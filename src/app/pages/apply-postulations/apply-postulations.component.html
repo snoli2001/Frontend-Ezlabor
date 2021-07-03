@@ -37,7 +37,7 @@
     <form autocomplete="off" [formGroup]="form" (ngSubmit)="postulate()" >
       <mat-card-content>
         <mat-form-field appearance="outline">
-          <input matInput type="number" formControlName="amount" class="amount-input" placeholder="0">
+          <input matInput type="number" formControlName="desiredPayment" class="amount-input" placeholder="0">
           <span matPrefix>S/.&nbsp;</span>
           <span matSuffix>.00</span>
           <mat-error *ngIf="amountInvalid">Monto inválido</mat-error>
