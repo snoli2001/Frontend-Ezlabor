@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
 
   hide = true;
   loginForm : LoginInterface = {
-    email: 'sebastian.noli@gmail.com',
-    password: '123456',
+    email: '',
+    password: '',
   };
 
   constructor(private authService: AuthApiService,

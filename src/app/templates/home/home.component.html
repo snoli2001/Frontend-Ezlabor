@@ -1,0 +1,12 @@
+
+<ng-container 
+    *ngIf="userType == 'FREELANCER'; then search; else employerHome">
+</ng-container>
+
+<ng-template #search>
+    <app-search></app-search>
+</ng-template>
+
+<ng-template #employerHome>
+    <app-home-employer></app-home-employer>
+</ng-template>

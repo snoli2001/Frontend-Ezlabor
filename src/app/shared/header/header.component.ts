@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from '../../app.component';
+import { UserApiService } from '../../services/user-api.service';
 
 @Component({
   selector: 'app-header',
@@ -9,22 +10,52 @@ import { AppComponent } from '../../app.component';
 })
 export class HeaderComponent implements OnInit {
 
-  links = [
-    {
-      name: 'Search job',
-      route: '/home'
-    },
-    {
-      name: 'postulations',
-      route: '/postulations'
-    }
-  ];
+  links: Array<any> | undefined;
 
-  activeLink = this.links[0];
+  id: number;
+  userType: string | undefined;
 
-  constructor(private router: Router, private app: AppComponent) { }
+  activeLink: any;
+
+  constructor(private router: Router, private app: AppComponent,
+              private userService:UserApiService) {
+    this.id = this.userService.getUserId() as number;
+   
+  }
 
   ngOnInit(): void {
+
+    this.userService.getUserType(this.id)
+    .subscribe((resp: any) => {
+      this.userType = resp.accountType;
+      
+      if(this.userType == 'FREELANCER'){
+        this.links = [
+          {
+            name: 'Search job',
+            route: '/home'
+          },
+          {
+            name: 'Postulations',
+            route: '/postulations'
+          }
+        ]
+      }else {
+        this.links = [
+          {
+            name: 'Home',
+            route: '/home'
+          },
+          {
+            name: 'My Offers',
+            route: '/myOffers'
+          }
+        ]
+      } 
+      this.activeLink = this.links[0];  
+    })
+    
+     
   }
 
   logOut(){

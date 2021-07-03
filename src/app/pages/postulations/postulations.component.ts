@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FreelancerPostulationInterface} from "../../models/FreelancerPostulation.interface";
-import {FreelancerPostulationApiService} from "../../services/freelancer-postulation-api.service";
+import { FreelancerApiService } from '../../services/freelancer-api.service';
+import { UserApiService } from '../../services/user-api.service';
+import { PostulationInterface } from '../../modals/postulation.interface';
 
 
 
@@ -16,18 +17,18 @@ export class PostulationsComponent implements OnInit {
 
   displayedColumns: string[] = [ 'title','description',  'payment', 'desired', 'state'];
 
-
-  postulations: FreelancerPostulationInterface[] = [];
-
-
-
-  constructor(private freelancerPostulationService: FreelancerPostulationApiService ) {
+  id: number;
+  postulations: PostulationInterface[] = [];
 
 
-    this.freelancerPostulationService.getFreelancerPostulationsById(1).subscribe( (postulationsResponse: FreelancerPostulationInterface[]  | any ) =>{
 
+  constructor(private freelancerService: FreelancerApiService, private userService: UserApiService ) {
+    
+    this.id = userService.getUserId() as number;
+
+    this.freelancerService.getPostulationsById(this.id).subscribe( 
+      (postulationsResponse: PostulationInterface[]  | any ) =>{
       this.postulations = postulationsResponse;
-
     });
 
   }

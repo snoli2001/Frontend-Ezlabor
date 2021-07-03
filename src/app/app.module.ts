@@ -41,6 +41,8 @@ import { EditProfileDialogComponent } from './components/dialogs/edit-profile-di
 import { AddSkillComponent } from './components/dialogs/add-skill/add-skill.component';
 import { AddCertificateComponent } from './components/dialogs/add-certificate/add-certificate.component';
 import {MatTableModule} from "@angular/material/table";
+import { HomeComponent } from './templates/home/home.component';
+import { HomeEmployerComponent } from './pages/home-employer/home-employer.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import {MatTableModule} from "@angular/material/table";
     EditProfileDialogComponent,
     AddSkillComponent,
     AddCertificateComponent,
+    HomeComponent,
+    HomeEmployerComponent,
   ],
   imports: [
     BrowserModule,

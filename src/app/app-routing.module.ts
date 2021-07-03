@@ -8,9 +8,10 @@ import { RegisterComponent } from './auth/register/register.component';
 import { RegisterFreelancerComponent } from './auth/register/register-freelancer/register-freelancer.component';
 import { RegisterEmployerComponent } from './auth/register/register-employer/register-employer.component';
 import {ApplyPostulationsComponent} from "./pages/apply-postulations/apply-postulations.component";
+import { HomeComponent } from './templates/home/home.component';
 
 const routes: Routes = [
-  {path: 'home', component: SearchComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'postulations', component: PostulationsComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'login', component: LoginComponent},

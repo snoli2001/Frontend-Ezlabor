@@ -23,12 +23,9 @@
         </div>
         <p class="mb-5">{{offer.description | slice:0:100}}...</p>
 
-        <div >
+        <div class="flex justify-center">
             <button (click)="applyOffer()" class="bg-purple-500 rounded-md text-white px-5 py-2 mr-5">
                 <span>Apply</span>
-            </button>
-            <button class="bg-blue-400 rounded-md text-white px-5 py-2">
-                <span>See more</span>
             </button>
         </div>
     </mat-card-content>
