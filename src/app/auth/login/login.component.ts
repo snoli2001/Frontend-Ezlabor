@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { LoginInterface } from '../../modals/Login.interface';
+import { LoginInterface } from '../../models/Login.interface';
 import { AuthApiService } from '../../services/auth-api.service';
 import jwt_decode from "jwt-decode";
 import { UserApiService } from '../../services/user-api.service';

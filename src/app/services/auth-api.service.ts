@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginInterface } from '../modals/Login.interface';
+import { LoginInterface } from '../models/Login.interface';
 import { catchError } from 'rxjs/operators';
 import { of, throwError } from 'rxjs';
 

@@ -21,7 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 //Components
 import { PostulationCardComponent } from './components/postulation-card/postulation-card.component';
@@ -36,6 +36,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { RegisterFreelancerComponent } from './auth/register/register-freelancer/register-freelancer.component';
 import { RegisterEmployerComponent } from './auth/register/register-employer/register-employer.component';
 import { ApplyPostulationsComponent } from './pages/apply-postulations/apply-postulations.component';
+import { EditProfileDialogComponent } from './components/dialogs/edit-profile-dialog/edit-profile-dialog.component';
+import { AddSkillComponent } from './components/dialogs/add-skill/add-skill.component';
+import { AddCertificateComponent } from './components/dialogs/add-certificate/add-certificate.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,9 @@ import { ApplyPostulationsComponent } from './pages/apply-postulations/apply-pos
     RegisterFreelancerComponent,
     RegisterEmployerComponent,
     ApplyPostulationsComponent,
+    EditProfileDialogComponent,
+    AddSkillComponent,
+    AddCertificateComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +78,8 @@ import { ApplyPostulationsComponent } from './pages/apply-postulations/apply-pos
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

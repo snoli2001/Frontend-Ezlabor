@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { OfferInterface } from '../../modals/offer.interface';
-import {Router} from "@angular/router";
+import { OfferInterface } from '../../models/offer.interface';
+
 
 @Component({
   selector: 'app-postulation-card',

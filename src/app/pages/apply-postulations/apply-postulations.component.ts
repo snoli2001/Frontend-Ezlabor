@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidatorsService} from "../../services/validators.service";
 import {PostulationApiService} from "../../services/postulation-api.service";
 
+
 @Component({
   selector: 'app-apply-postulations',
   templateUrl: './apply-postulations.component.html',

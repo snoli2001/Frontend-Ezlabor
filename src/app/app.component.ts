@@ -7,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   ngOnInit(): void{
+    this.isAuth();
   }
   isAuthenticated = false;
+
+  isAuth(){
+    if (sessionStorage.getItem('token') != null){
+      this.isAuthenticated = true;
+    }
+    else{
+      this.isAuthenticated = false;
+    }
+  }
+
   title = 'Frontend-EzLabor';
 }
