@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { OfferInterface } from '../../models/offer.interface';
 
+
 @Component({
   selector: 'app-postulation-card',
   templateUrl: './postulation-card.component.html',
@@ -13,13 +14,18 @@ export class PostulationCardComponent implements OnInit {
   @Output() postulate = new EventEmitter<undefined>();
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onPostulate(): void {
     this.postulate.emit(undefined);
+  }
+
+  applyOffer() {
+    this.router.navigate(["apply-postulations/",this.offer.id])
+    console.log(this.offer.id)
   }
 
 }

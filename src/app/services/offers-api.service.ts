@@ -13,9 +13,14 @@ export class OffersService {
     let url = `${ this.apiUrl }/offers`;
     return this.http.get(url);
   }
-  
+
   getOffersBySpecialties(){
     let url = `${ this.apiUrl }/offers/specialties`;
+  }
+
+  getOfferById(offerId: number) {
+    let url = `${this.apiUrl}/offers/${offerId}`;
+    return this.http.get(url);
   }
 
 }
