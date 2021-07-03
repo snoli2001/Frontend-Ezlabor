@@ -12,7 +12,8 @@ import { OfferInterface } from '../models/offer.interface';
 })
 export class EmployerApiService {
 
-  private apiUrl: string = "http://localhost:8080/api"
+  // private apiUrl: string = "http://localhost:8080/api"
+  private apiUrl:string = "https://ezlabor-api.herokuapp.com/api"
 
   constructor(private http: HttpClient) {
   }

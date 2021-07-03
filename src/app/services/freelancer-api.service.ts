@@ -12,7 +12,9 @@ import { PostulationInterface } from '../models/Postulation.interface';
 })
 export class FreelancerApiService {
 
-  private apiUrl:string = "http://localhost:8080/api"
+  // private apiUrl:string = "http://localhost:8080/api"
+  private apiUrl:string = "https://ezlabor-api.herokuapp.com/api"
+
   constructor(private http: HttpClient) { }
 
   getAllFreelancers(): Observable<FreelancerInterface[]>{

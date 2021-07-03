@@ -7,7 +7,9 @@ import {UserApiService} from "./user-api.service";
 })
 export class SkillApiService {
 
-  private apiUrl: string = "http://localhost:8080/api"
+  // private apiUrl: string = "http://localhost:8080/api"
+  private apiUrl:string = "https://ezlabor-api.herokuapp.com/api"
+
   constructor(private http: HttpClient) { }
 
   addSkill(freelancerId: number, skillName: string) {

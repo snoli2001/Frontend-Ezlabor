@@ -6,7 +6,9 @@ import jwt_decode from 'jwt-decode';
   providedIn: 'root'
 })
 export class UserApiService {
-  private apiUrl:string = "http://localhost:8080/api"
+  // private apiUrl:string = "http://localhost:8080/api"
+  private apiUrl:string = "https://ezlabor-api.herokuapp.com/api"
+
   constructor(private http: HttpClient) { }
 
   getUserType(id: number): any{

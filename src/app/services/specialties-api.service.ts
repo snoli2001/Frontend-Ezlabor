@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class SpecialtiesService {
 
-  private apiUrl:string = "http://localhost:8080/api"
+  // private apiUrl:string = "http://localhost:8080/api"
+  private apiUrl:string = "https://ezlabor-api.herokuapp.com/api"
+  
   constructor(private http: HttpClient) { }
 
   getSpecialties(){
