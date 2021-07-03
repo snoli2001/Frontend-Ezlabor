@@ -39,6 +39,7 @@ import { ApplyPostulationsComponent } from './pages/apply-postulations/apply-pos
 import { EditProfileDialogComponent } from './components/dialogs/edit-profile-dialog/edit-profile-dialog.component';
 import { AddSkillComponent } from './components/dialogs/add-skill/add-skill.component';
 import { AddCertificateComponent } from './components/dialogs/add-certificate/add-certificate.component';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -57,30 +58,31 @@ import { AddCertificateComponent } from './components/dialogs/add-certificate/ad
     AddSkillComponent,
     AddCertificateComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSnackBarModule,
-    MatCardModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatTabsModule,
-    MatMenuModule,
-    MatDividerModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    MatChipsModule,
-    MatInputModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatDialogModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        MatCardModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatTabsModule,
+        MatMenuModule,
+        MatDividerModule,
+        MatFormFieldModule,
+        MatCheckboxModule,
+        MatButtonModule,
+        MatChipsModule,
+        MatInputModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatDialogModule,
+        MatTableModule
+    ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
