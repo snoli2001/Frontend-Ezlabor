@@ -1,0 +1,69 @@
+<div *ngIf="postulations">
+    <div class="m-10 p-5" *ngIf="postulations.length > 0; else noPostulations" >
+        <table mat-table [dataSource]="postulations" class="mat-elevation-z8 " >
+      
+      
+          <ng-container matColumnDef="freelancer">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let element"> {{element.firstname}}  {{element.lastname}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell class="max-w-md" *matCellDef="let element"> {{element.description}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="payment">
+            <th mat-header-cell *matHeaderCellDef> Payment </th>
+            <td mat-cell class="text-green-800 font-medium " *matCellDef="let element"> S/{{element.paymentAmount}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="desired">
+            <th mat-header-cell *matHeaderCellDef> Desired Payment </th>
+            <td mat-cell class="text-green-500 font-medium " *matCellDef="let element"> S/{{element.desiredPayment}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef> State </th>
+            <td mat-cell *matCellDef="let element"
+             [class.text-red-500]="element.state == 'REJECTED'"
+             [class.text-yellow-500]="element.state == 'UNANSWERED'"
+             [class.text-green-500]="element.state == 'ACCEPTED'"
+             >
+              {{element.state}} 
+            </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <div *ngIf="element.state == 'UNANSWERED'" class="w-40 flex justify-between">
+                    <button (click)="acceptPostulation(element.id)" mat-raised-button class="bg-green-500 text-white" >Accept</button>
+                    <button (click)="rejectPostulation(element.id)" mat-raised-button class="bg-red-500 text-white">Reject</button>
+                </div>
+    
+                <div *ngIf="element.state == 'REJECTED'" class="w-40 flex justify-between">
+                    <button (click)="clearPostulation(element.id)" mat-raised-button class="bg-red-800 text-white" >Delete</button>
+                </div>
+    
+                <div *ngIf="element.state == 'ACCEPTED'" class="w-40 flex justify-between">
+                    <button mat-raised-button class="bg-blue-500 text-white" >Contact</button>
+                </div>
+    
+    
+            </td>
+          </ng-container>
+            
+      
+      
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      <ng-template #noPostulations >
+        <h1>
+            Does not have applications yet
+        </h1>
+      </ng-template>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FreelancerApiService } from '../../services/freelancer-api.service';
+import { FreelancerInterface } from '../../models/Frelancer.interface';
 
 @Component({
   selector: 'app-home-employer',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeEmployerComponent implements OnInit {
 
-  constructor() { }
+  freelancers: Array<FreelancerInterface> | undefined;
+  constructor(private freelancerService: FreelancerApiService) { }
 
   ngOnInit(): void {
+    this.freelancerService.getAllFreelancers()
+    .subscribe(resp => {this.freelancers = resp; console.log(this.freelancers); });
+   
   }
 
 }

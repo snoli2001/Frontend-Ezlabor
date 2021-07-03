@@ -1,0 +1,15 @@
+
+<div *ngIf="userType != undefined">
+    <ng-container 
+        *ngIf="userType == 'FREELANCER'; then freelancerProfile; else employerProfile">
+    </ng-container>
+
+    <ng-template #freelancerProfile>
+        <app-freelancer-profile></app-freelancer-profile>
+    </ng-template>
+
+    <ng-template #employerProfile>
+        <app-employer-profile></app-employer-profile>
+    </ng-template>
+
+</div>

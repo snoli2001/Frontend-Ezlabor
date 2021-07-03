@@ -1,1 +1,8 @@
-<p>home-employer works!</p>
+
+<div class="col-span-7 lg:col-span-4">
+    <div class="md:grid flex flex-col items-center  md:grid-cols-2 lg:grid-cols-3" >
+        <div *ngFor="let freelancer of freelancers">
+            <app-freelancer-card [freelancer]="freelancer"></app-freelancer-card>
+        </div>
+    </div>
+</div>

@@ -48,7 +48,7 @@ export class HeaderComponent implements OnInit {
           },
           {
             name: 'My Offers',
-            route: '/myOffers'
+            route: '/employer-offers'
           }
         ]
       } 

@@ -1,12 +1,15 @@
+<div *ngIf="userType != undefined">
 
-<ng-container 
-    *ngIf="userType == 'FREELANCER'; then search; else employerHome">
-</ng-container>
+    <ng-container 
+        *ngIf="userType == 'FREELANCER'; then search; else employerHome">
+    </ng-container>
 
-<ng-template #search>
-    <app-search></app-search>
-</ng-template>
+    <ng-template  #search>
+        <app-search></app-search>
+    </ng-template>
 
-<ng-template #employerHome>
-    <app-home-employer></app-home-employer>
-</ng-template>
+    <ng-template #employerHome>
+        <app-home-employer></app-home-employer>
+    </ng-template>
+
+</div>

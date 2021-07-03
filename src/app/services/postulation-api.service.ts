@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {PostulationInterface} from "../modals/postulation.interface";
+import {PostulationInterface} from "../models/Postulation.interface";
 
 @Injectable({
   providedIn: 'root'

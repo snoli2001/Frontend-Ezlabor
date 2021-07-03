@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PostulationInterface } from '../../models/Postulation.interface';
 import { FreelancerApiService } from '../../services/freelancer-api.service';
 import { UserApiService } from '../../services/user-api.service';
-import { PostulationInterface } from '../../modals/postulation.interface';
 
 
 

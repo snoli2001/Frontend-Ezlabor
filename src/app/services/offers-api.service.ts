@@ -31,4 +31,19 @@ export class OffersService {
     return this.http.get<PostulationInterface[]>(url);
   }
 
+  acceptPostulation(offerId: number, postulationId: number){
+    let url = `${this.apiUrl}/offers/${offerId}/postulations/${postulationId}/accept`;
+    return this.http.patch(url, null);
+  }
+
+  rejectPostulation(offerId: number, postulationId: number){
+    let url = `${this.apiUrl}/offers/${offerId}/postulations/${postulationId}/reject`;
+    return this.http.patch(url, null);
+  }
+
+  deletePostulation(offerId: number, postulationId: number){
+    let url = `${this.apiUrl}/offers/${offerId}/postulations/${postulationId}`;
+    return this.http.delete(url);
+  }
+
 }

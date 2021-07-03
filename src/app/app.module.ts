@@ -29,7 +29,7 @@ import { PostulationCardComponent } from './components/postulation-card/postulat
 import { SearchComponent } from './pages/search/search.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { PostulationsComponent } from './pages/postulations/postulations.component';
-import { ProfileComponent } from './pages/profile/profile.component'
+import { ProfileComponent } from './templates/profile/profile.component'
 import { AuthInterceptor} from "./http-interceptors/auth-interceptor";
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -43,6 +43,14 @@ import { AddCertificateComponent } from './components/dialogs/add-certificate/ad
 import {MatTableModule} from "@angular/material/table";
 import { HomeComponent } from './templates/home/home.component';
 import { HomeEmployerComponent } from './pages/home-employer/home-employer.component';
+import { EmployerOffersComponent } from './pages/employer-offers/employer-offers.component';
+import { EmployerProfileComponent } from './pages/employer-profile/employer-profile.component';
+import { FreelancerProfileComponent } from './pages/freelancer-profile/freelancer-profile.component';
+import { FreelancerCardComponent } from './components/freelancer-card/freelancer-card.component';
+import { ViewFreelancerProfileComponent } from './pages/view-freelancer-profile/view-freelancer-profile.component';
+import { EmployerOfferComponent } from './components/employer-offer/employer-offer.component';
+import { OfferPostulationsComponent } from './pages/offer-postulations/offer-postulations.component';
+import { AddOfferComponent } from './components/dialogs/add-offer/add-offer.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +70,14 @@ import { HomeEmployerComponent } from './pages/home-employer/home-employer.compo
     AddCertificateComponent,
     HomeComponent,
     HomeEmployerComponent,
+    EmployerOffersComponent,
+    EmployerProfileComponent,
+    FreelancerProfileComponent,
+    FreelancerCardComponent,
+    ViewFreelancerProfileComponent,
+    EmployerOfferComponent,
+    OfferPostulationsComponent,
+    AddOfferComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,9 +4,9 @@ import { FreelancerInterface } from '../../models/Frelancer.interface';
 import { FreelancerApiService } from '../../services/freelancer-api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditProfileDialogComponent } from '../../components/dialogs/edit-profile-dialog/edit-profile-dialog.component';
-import { UpdateFreelancerInterface } from '../../models/UpdateFreelancer.interface';
 import { AddSkillComponent } from '../../components/dialogs/add-skill/add-skill.component';
 import { SkillApiService } from '../../services/skill-api.service';
+
 
 export interface Skill {
   id: 1,
@@ -15,13 +15,15 @@ export interface Skill {
   level: string,
 }
 
-@Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
-})
-export class ProfileComponent implements OnInit {
 
+@Component({
+  selector: 'app-freelancer-profile',
+  templateUrl: './freelancer-profile.component.html',
+  styleUrls: ['./freelancer-profile.component.css']
+})
+export class FreelancerProfileComponent implements OnInit {
+
+ 
   skills: Skill[] = [];
   text: string | undefined;
   id: number;
@@ -80,4 +82,5 @@ export class ProfileComponent implements OnInit {
       }
     })
   }
+
 }

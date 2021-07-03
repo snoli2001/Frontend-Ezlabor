@@ -1,0 +1,72 @@
+
+<form autocomplete="off" (ngSubmit)="createOffer(createNgOffer)" #createNgOffer="ngForm" >
+    <div class="flex flex-col justify-around mb-2">
+        <mat-form-field class="mb-2">
+            <input matInput name="title" 
+                type="text"
+                required
+                minlength="6"
+                placeholder="Title"
+                [ngModel]="data?.title"
+                #phone="ngModel"
+            >
+        </mat-form-field>
+
+        <mat-form-field >
+            <input matInput name="description" 
+                type="text"
+                placeholder="Description"
+                required
+                minlength="6"
+                [ngModel]="data?.description"
+                #password="ngModel">
+        </mat-form-field>
+
+        <mat-form-field >
+            <input matInput name="paymentAmount" 
+                type="number"
+                required
+                placeholder="Payment Amount"
+                [ngModel]="data?.paymentAmount"
+                #paymentAmount="ngModel">
+        </mat-form-field>
+
+        
+        <mat-form-field >
+            <input matInput name="monthDuration" 
+                type="number"
+                required
+                placeholder="Months of duration"
+                [ngModel]="data?.monthDuration"
+                #monthDuration="ngModel">
+        </mat-form-field>
+
+        <mat-form-field >
+            <mat-label>Select the starting day  </mat-label>
+            <input matInput required placeholder="Start day" name="startDate" [ngModel]="data?.startDate" [min]="minDate" [matDatepicker]="picker1">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field >
+            <mat-label>Select the end day </mat-label>
+            <input matInput required placeholder="End Day" name="endDate" [ngModel]="data?.endDate" [min]="minDate" [matDatepicker]="picker2">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Specialty</mat-label>
+            <mat-select [ngModel]="data?.specialtyId" name="specialtyId">
+              <mat-option *ngFor="let specialty of specialties" [value]="specialty.id">
+                {{specialty.name}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+   
+    <div class="text-center">
+        <button class="px-6 py-2 bg-purple-500 text-white rounded-full" type="submit" mat-button>Post Offer</button>
+    </div>
+
+</form>

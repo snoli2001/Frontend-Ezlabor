@@ -1,0 +1,33 @@
+<mat-card class="w-96 px-5 mt-5 ml-5">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <div class="group w-full h-full rounded-full overflow-hidden shadow-inner text-center bg-purple table ">
+            <img src="https://pickaface.net/gallery/avatar/unr_random_180410_1905_z1exb.png" alt="lovely avatar" class="object-cover object-center w-full h-full " />
+          </div>
+        </div>  
+      <mat-card-title class="mt-2">{{freelancer.username}}</mat-card-title>
+      
+    </mat-card-header>
+    <mat-card-content class="mt-5">
+
+      <div class="grid grid-cols-2 mb-1">
+        <div>Full Name:</div>
+        <div class="font-medium">{{freelancer.firstname + ' ' + freelancer.lastname}}  </div>
+      </div>
+      <div class="grid grid-cols-2 mb-2">
+        <div>Profession:</div>
+        <div class="font-medium">{{freelancer.profession}}</div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="mt-5" *ngIf="freelancer.description !== null">
+            <h1 class="text-purple-500 text-xl">Description</h1>
+            <p class="mt-2">{{freelancer.description}}</p>
+      </div>
+  
+      <div class="flex justify-center mt-5">
+        <button (click)="seeMore()" class="bg-purple-500 rounded-md text-white px-5 py-2">
+          <span>See more</span>
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>

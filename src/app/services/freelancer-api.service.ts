@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FreelancerInterface } from '../models/Frelancer.interface';
 import { NewFreelancerInterface } from '../models/NewFreelancer';
-import { Skill } from '../pages/profile/profile.component';
+import { Skill } from '../templates/profile/profile.component';
 import { UpdateFreelancerInterface } from '../models/UpdateFreelancer.interface';
 import { PostulationInterface } from '../models/Postulation.interface';
 
@@ -14,6 +14,11 @@ export class FreelancerApiService {
 
   private apiUrl:string = "http://localhost:8080/api"
   constructor(private http: HttpClient) { }
+
+  getAllFreelancers(): Observable<FreelancerInterface[]>{
+    const url = `${this.apiUrl}/freelancers`;
+    return this.http.get<FreelancerInterface[]>(url);
+  }
   
   getFreelancerById(id: number): Observable<FreelancerInterface>{
     const url = `${this.apiUrl}/freelancers/${id}`;

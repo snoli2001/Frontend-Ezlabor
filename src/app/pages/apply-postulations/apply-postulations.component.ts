@@ -81,7 +81,7 @@ export class ApplyPostulationsComponent implements OnInit {
     }
     const newPostulation = this.form.value;
     console.log(newPostulation);
-    this.postulationsService.postPostulation( this.id,  this.offerId, newPostulation ).subscribe(() => this.rout.navigateByUrl('/home'))
+    this.postulationsService.postPostulation( this.id,  this.offerId, newPostulation ).subscribe(() => this.rout.navigateByUrl('/postulations'))
   }
 
   get desiredPaymentInvalid(){
