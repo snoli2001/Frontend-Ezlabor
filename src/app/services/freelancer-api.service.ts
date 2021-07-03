@@ -5,6 +5,7 @@ import { FreelancerInterface } from '../models/Frelancer.interface';
 import { NewFreelancerInterface } from '../models/NewFreelancer';
 import { Skill } from '../pages/profile/profile.component';
 import { UpdateFreelancerInterface } from '../models/UpdateFreelancer.interface';
+import { PostulationInterface } from '../models/Postulation.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,11 @@ export class FreelancerApiService {
   updateFreelancer(id: number, updateData: UpdateFreelancerInterface ): Observable<FreelancerInterface>{
     const url = `${this.apiUrl}/freelancers/${id}`;
     return this.http.put<FreelancerInterface>(url, updateData );
+  }
+
+  getPostulationsById(id: number) : Observable<PostulationInterface[]>{
+    const url = `${this.apiUrl}/freelancers/${id}/postulations`;
+    return this.http.get<PostulationInterface[]>(url);
   }
 
 }
