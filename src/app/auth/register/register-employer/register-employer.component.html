@@ -17,13 +17,32 @@
             >
             <mat-error *ngIf="usernameInvalid">The username is required</mat-error>
           </mat-form-field>
+
           <mat-form-field class="mb-2">
-            <input matInput name="companyName"
+            <input matInput name="email"
                    type="text"
-                   placeholder="Company Name"
-                   formControlName="companyName"
+                   placeholder="Email"
+                   formControlName="email"
             >
-            <mat-error *ngIf="companyNameInvalid">The name must have a minimum of 3 characters</mat-error>
+            <mat-error *ngIf="emailInvalid">The email is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="mb-2">
+            <input matInput name="firstname"
+                   type="text"
+                   placeholder="First name"
+                   formControlName="firstname"
+            >
+            <mat-error *ngIf="firstnameInvalid">The first name must have a minimum of 3 characters</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="mb-2">
+            <input matInput name="lastname"
+                   type="text"
+                   placeholder="Last name"
+                   formControlName="lastname"
+            >
+            <mat-error *ngIf="firstnameInvalid">The last name must have a minimum of 3 characters</mat-error>
           </mat-form-field>
 
           <mat-form-field class="mb-2">
@@ -35,34 +54,7 @@
             <mat-error *ngIf="personalPhoneInvalid">The phone number must have 9 characters</mat-error>
           </mat-form-field>
 
-          <mat-form-field class="mb-2">
-            <input matInput name="contactCompanyEmail"
-                   type="text"
-                   placeholder="Company Email"
-                   formControlName="contactCompanyEmail"
-            >
-            <mat-error *ngIf="contactCompanyEmailInvalid">The email is required</mat-error>
-          </mat-form-field>
-
-          <mat-form-field class="mb-2">
-            <input matInput name="companyPhone"
-                   type="tel"
-                   placeholder="Company Phone"
-                   formControlName="companyPhone"
-            >
-            <mat-error *ngIf="companyPhoneInvalid">The phone number must have 9 characters</mat-error>
-          </mat-form-field>
-
-
-          <mat-form-field class="mb-2">
-            <input matInput name="companyWeb"
-                   type="text"
-                   placeholder="Company Web"
-                   formControlName="companyWeb"
-            >
-            <mat-error *ngIf="companyWebInvalid">The web is required</mat-error>
-          </mat-form-field>
-
+          
           <mat-form-field >
             <input matInput name="password"
                    type="password"

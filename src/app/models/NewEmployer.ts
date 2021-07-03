@@ -1,10 +1,9 @@
 
 export interface NewEmployerInterface {
   username:   string,
-  companyName: string,
+  email: string,
+  firstname:string,
+  lastname: string,
+  password: string,
   personalPhone:  string,
-  contactCompanyEmail:  string,
-  companyPhone:  string,
-  companyWeb: string,
-  password: string
 }

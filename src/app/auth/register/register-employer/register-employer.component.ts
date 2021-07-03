@@ -31,11 +31,10 @@ export class RegisterEmployerComponent implements OnInit {
   createForm(){
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(5)]],
-      companyName: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [ Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       personalPhone: ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
-      contactCompanyEmail: ['', [ Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-      companyPhone: ['', [ Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
-      companyWeb: ['', [Validators.required, Validators.minLength(5)]],
+      firstname:['', [ Validators.required, Validators.minLength(3)]],
+      lastname:['', [ Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
     }, {
@@ -67,24 +66,24 @@ export class RegisterEmployerComponent implements OnInit {
   get usernameInvalid(){
     return this.form?.get('username')?.invalid && this.form.get('username')?.touched;
   }
-  get companyNameInvalid(){
-    return this.form?.get('companyName')?.invalid && this.form.get('companyName')?.touched;
-  }
   get personalPhoneInvalid(){
     return this.form?.get('personalPhone')?.invalid && this.form.get('personalPhone')?.touched;
   }
-  get contactCompanyEmailInvalid(){
-    return this.form?.get('contactCompanyEmail')?.invalid && this.form.get('contactCompanyEmail')?.touched;
+  
+  get emailInvalid(){
+    return this.form?.get('email')?.invalid && this.form.get('email')?.touched;
   }
-  get companyPhoneInvalid(){
-    return this.form?.get('companyPhone')?.invalid && this.form.get('companyPhone')?.touched;
+
+  get firstnameInvalid(){
+    return this.form?.get('firstname')?.invalid && this.form.get('firstname')?.touched;
   }
-  get companyWebInvalid(){
-    return this.form?.get('companyWeb')?.invalid && this.form.get('companyWeb')?.touched;
+  get lasttnameInvalid(){
+    return this.form?.get('firstname')?.invalid && this.form.get('firstname')?.touched;
   }
   get passwordInvalid(){
     return this.form?.get('password')?.invalid && this.form.get('password')?.touched;
   }
+  
   get confirmPasswordInvalid(){
     const pass1 = this.form?.get('password')?.value;
     const pass2 = this.form?.get('confirmPassword')?.value;
