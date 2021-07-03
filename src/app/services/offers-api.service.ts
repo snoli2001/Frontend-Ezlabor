@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +18,9 @@ export class OffersService {
     let url = `${ this.apiUrl }/offers/specialties`;
   }
 
-  getOfferById(id: number) : Observable<any> {
-    let url = `${ this.apiUrl }/offers/${ id }`;
-    return this.http.get<any>(url);
+  getOfferById(offerId: number) {
+    let url = `${this.apiUrl}/offers/${offerId}`;
+    return this.http.get(url);
   }
+
 }

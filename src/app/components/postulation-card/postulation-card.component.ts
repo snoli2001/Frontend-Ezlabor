@@ -24,8 +24,8 @@ export class PostulationCardComponent implements OnInit {
   }
 
   applyOffer() {
-      this.router.navigate(["apply-postulations/",this.offer.id])
-      console.log(this.offer.id)
+    this.router.navigate(["apply-postulations/",this.offer.id])
+    console.log(this.offer.id)
   }
 
 }
