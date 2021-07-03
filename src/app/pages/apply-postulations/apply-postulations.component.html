@@ -3,24 +3,24 @@
 </button>
 <div class="flex flex-col items-center justify-center">
   <mat-card class="card-width mt-5">
-    <mat-card-title id="title" class="pb-3">{{ offers.title }}</mat-card-title>
+    <mat-card-title id="title" class="pb-3">{{ offers?.title }}</mat-card-title>
     <mat-card-content id="specialty">
       <span>Speciality: </span>
-      <span><b>{{ offers.specialty.name }}</b></span>
+      <span><b>{{ offers?.specialty.name }}</b></span>
     </mat-card-content>
     <mat-card-content>
       <div class="grid grid-cols-2">
         <div>
           <span>Start date: </span>
-          <span><b>{{ offers.startDate | date:'shortDate'}}</b></span>
+          <span><b>{{ offers?.startDate | date:'shortDate'}}</b></span>
         </div>
         <div>
           <span>End date: </span>
-          <span><b>{{ offers.endDate | date:'shortDate'}}</b></span>
+          <span><b>{{ offers?.endDate | date:'shortDate'}}</b></span>
         </div>
       </div>
       <div class="px-3 pt-3">
-        {{ offers.description }}
+        {{ offers?.description }}
       </div>
     </mat-card-content>
     <mat-card-actions>
@@ -37,7 +37,7 @@
     <form autocomplete="off" [formGroup]="form" (ngSubmit)="postulate()" >
       <mat-card-content>
         <mat-form-field appearance="outline">
-          <input matInput type="number" class="amount-input" placeholder="0">
+          <input matInput type="number" formControlName="amount" class="amount-input" placeholder="0">
           <span matPrefix>S/.&nbsp;</span>
           <span matSuffix>.00</span>
           <mat-error *ngIf="amountInvalid">Monto inválido</mat-error>
@@ -47,8 +47,8 @@
       <div class="grid grid-cols-1">
         <mat-form-field appearance="outline" class="pt-6">
           <mat-label>Déjale un comentario al cliente</mat-label>
-          <textarea matInput></textarea>
-          <mat-error *ngIf="commentInvalid">El comentario es demasiado corto</mat-error>
+          <textarea matInput formControlName="description" ></textarea>
+          <mat-error *ngIf="descriptionInvalid">El comentario es demasiado corto</mat-error>
         </mat-form-field>
       </div>
       <mat-divider></mat-divider>

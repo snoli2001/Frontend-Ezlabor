@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { OfferInterface } from '../../models/offer.interface';
 
 
@@ -24,8 +25,8 @@ export class PostulationCardComponent implements OnInit {
   }
 
   applyOffer() {
-    this.router.navigate(["apply-postulations/",this.offer.id])
     console.log(this.offer.id)
+    this.router.navigate(["apply-postulations/",this.offer.id])
   }
 
 }

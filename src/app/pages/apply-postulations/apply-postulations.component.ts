@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidatorsService} from "../../services/validators.service";
 import {PostulationApiService} from "../../services/postulation-api.service";
+import { UserApiService } from '../../services/user-api.service';
 
 
 @Component({
@@ -17,10 +18,12 @@ export class ApplyPostulationsComponent implements OnInit {
   form!: FormGroup;
   offerId: number = 0;
   offers: any;
+  id: number;
 
   constructor(private offerApiService: OffersService,
               private router: ActivatedRoute,
               private fb: FormBuilder,
+              private userService: UserApiService,
               private validators: ValidatorsService,
               private postulationsService: PostulationApiService,
               private rout: Router) {
@@ -31,6 +34,11 @@ export class ApplyPostulationsComponent implements OnInit {
         this.offerApiService.getOfferById(this.offerId).subscribe(resp => this.offers = resp);
       }
     });
+    
+    this.id = this.userService.getUserId() as number;
+    
+    
+
   }
 
   ngOnInit(): void {
@@ -39,12 +47,12 @@ export class ApplyPostulationsComponent implements OnInit {
   createForm() {
     this.form = this.fb.group({
       amount: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(5)]],
-      comment: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(240)]],
+      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(240)]],
     });
   }
 
   postulate(){
-    console.log(this.form);
+    // console.log(this.form);
     if (this.form.invalid) {
       return Object.values( this.form.controls ).forEach( control => {
         if ( control instanceof FormGroup ) {
@@ -56,13 +64,13 @@ export class ApplyPostulationsComponent implements OnInit {
     }
     const newPostulation = this.form.value;
     console.log(newPostulation);
-    //this.postulationsService.postPostulation().subscribe(() => this.router.navigateByUrl('/home'))
+    this.postulationsService.postPostulation( this.id,  this.offerId, newPostulation ).subscribe(() => this.rout.navigateByUrl('/home'))
   }
 
   get amountInvalid(){
     return this.form?.get('amount')?.invalid && this.form.get('amount')?.touched;
   }
-  get commentInvalid(){
-    return this.form?.get('comment')?.invalid && this.form.get('comment')?.touched;
+  get descriptionInvalid(){
+    return this.form?.get('description')?.invalid && this.form.get('description')?.touched;
   }
 }
