@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { PostulationInterface } from '../models/Postulation.interface';
+import { OfferInterface } from '../models/offer.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +21,14 @@ export class OffersService {
     let url = `${ this.apiUrl }/offers/specialties`;
   }
 
-  getOfferById(offerId: number) {
+  getOfferById(offerId: number) : Observable<OfferInterface> {
     let url = `${this.apiUrl}/offers/${offerId}`;
-    return this.http.get(url);
+    return this.http.get<OfferInterface>(url);
+  }
+
+  getPostulationsById(offerId: number): Observable<PostulationInterface[]>{
+    let url = `${this.apiUrl}/offers/${offerId}/postulations`;
+    return this.http.get<PostulationInterface[]>(url);
   }
 
 }

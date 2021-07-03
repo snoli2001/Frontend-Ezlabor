@@ -22,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 
 //Components
 import { PostulationCardComponent } from './components/postulation-card/postulation-card.component';
@@ -58,31 +59,32 @@ import {MatTableModule} from "@angular/material/table";
     AddSkillComponent,
     AddCertificateComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatSnackBarModule,
-        MatCardModule,
-        MatIconModule,
-        MatToolbarModule,
-        MatTabsModule,
-        MatMenuModule,
-        MatDividerModule,
-        MatFormFieldModule,
-        MatCheckboxModule,
-        MatButtonModule,
-        MatChipsModule,
-        MatInputModule,
-        MatSelectModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatDialogModule,
-        MatTableModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatCardModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatChipsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatTableModule
+  ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
