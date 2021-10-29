@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +8,12 @@ import { Injectable } from '@angular/core';
 export class SpecialtiesService {
 
   // private apiUrl:string = "http://localhost:8080/api"
-  private apiUrl:string = "https://ezlabor-api.herokuapp.com/api"
+  // private apiUrl:string = "https://ezlabor-api.herokuapp.com/api"
   
   constructor(private http: HttpClient) { }
 
   getSpecialties(){
-    let url = `${ this.apiUrl }/specialties`;
+    let url = `${ environment.apiURL }/specialties`;
     return this.http.get(url);
   }
 
